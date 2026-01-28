@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-List Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- Sidebar for Lists -->
+        <aside id="sidebar">
+            <h2>My Lists</h2>
+            <div id="lists-container">
+                <!-- Dynamic list items will be inserted here -->
+            </div>
+            <button id="add-list-btn">+ New List</button>
+        </aside>
+
+        <!-- Main Todo Area -->
+        <main id="main-content">
+            
+            <!-- Header with active list name and controls -->
+            <header id="todo-header">
+                <h1 id="active-list-name">List Name</h1>
+                <div id="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </header>
+
+            <!-- Add Todo Form -->
+            <section id="add-todo-section">
+                <input type="text" id="todo-title" placeholder="What needs to be done?">
+                <textarea id="todo-description" placeholder="Description (optional)"></textarea>
+                <div id="todo-metadata">
+                    <input type="date" id="todo-due-date">
+                    <select id="todo-priority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+                <button id="add-todo-btn">Add Todo</button>
+                <button id="cancel-edit-btn" style="display:none;">Cancel</button>
+            </section>
+
+            <!-- Active Todos Section -->
+            <section id="active-todos-section">
+                <h2>Active Tasks</h2>
+                <ul id="active-todos-list" class="todos-list">
+                    <!-- Dynamic active todo items -->
+                </ul>
+                <div id="empty-active-message" style="display:none;">
+                    What's your next task?
+                </div>
+            </section>
+
+            <!-- Completed Todos Section -->
+            <section id="completed-todos-section">
+                <div id="completed-header">
+                    <h2>Completed Tasks</h2>
+                    <button id="clear-completed-btn">Clear All Completed</button>
+                </div>
+                <ul id="completed-todos-list" class="todos-list">
+                    <!-- Dynamic completed todo items -->
+                </ul>
+                <div id="empty-completed-message" style="display:none;">
+                    No completed tasks yet
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Modal for List Creation -->
+        <div id="list-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h3>Create New List</h3>
+                <input type="text" id="new-list-name" placeholder="List name">
+                <input type="color" id="new-list-color" value="#3498db">
+                <button id="create-list-btn">Create</button>
+                <button id="cancel-list-btn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirm-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h3 id="confirm-message">Are you sure?</h3>
+                <button id="confirm-yes-btn">Yes</button>
+                <button id="confirm-no-btn">No</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
